@@ -1,0 +1,566 @@
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+body {
+    margin: 0;
+    background-color: hsl(0, 0%, 8%);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 300;
+    line-height: 1.2;
+    letter-spacing: .75px;
+    color: hsl(0, 0%, 60%);
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+ul, ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+a.btn {
+    display: inline-block;
+    border: 1px solid hsl(0, 0%, 60%);
+    padding: 8px 16px;
+}
+.wrapper {
+    padding: 0 64px;
+}
+
+/**
+*  Navigation Styles ---------------------------------------------------------------
+**/
+form {
+    position: relative;
+}
+form label {
+    display: flex;
+    align-items: center;
+}
+form label > span {
+    position: relative;
+    transform: translateX(0%);
+    transition: transform 250ms ease-out
+}
+form.searchOpen label > span {
+    transform: translateX(100%);
+}
+form input[type="search"] {
+    position: relative;
+    z-index: 10;
+    padding: 0;
+    width: 0;
+    border-width: 1px;
+    border-style: solid;
+    border-color: transparent;
+    line-height: 2;
+    font-size: inherit;
+    background-color: transparent;
+    transition: width 250ms ease-out, border-color 250ms ease-out;
+}
+form.searchOpen input[type="search"]{
+    width: 175px;
+    padding: 0 4px;
+    border-color: lightgrey;
+    background-color: white;
+}
+
+
+/**
+*  Navigation Styles ---------------------------------------------------------------
+**/
+nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    background-color: hsla(0, 0%, 0%, .85);
+    padding: 0 64px;
+    box-sizing: border-box;
+    z-index: 9999;
+    margin: 0px 0px 0px 0px;
+}
+nav h1 a {
+    display: inline-block;
+    background-image: url(../img/netflix.png);
+    background-size: 80%;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 24px;
+    margin-left: 0;
+    color: transparent;
+    /*text-indent: -200%;*/
+    /*overflow: hidden;*/
+}
+nav ul {
+    display: flex;
+    align-items: center;
+}
+nav a {
+    text-decoration: none !important;
+}
+nav a,
+nav form {
+    margin: 0 16px;
+}
+nav ul:first-of-type {
+    margin-right: auto;
+}
+nav ul:last-child li:last-child a {
+    margin-right: 0;
+}
+nav a.active {
+    color: hsl(357, 92.4%, 46.7%);
+}
+
+main ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+main li {
+    margin: 16px;
+}
+
+/**
+*  Featured Styles ---------------------------------------------------------------
+**/
+header.featured {
+    background-image: linear-gradient(to right, hsla(0, 0%, 0%, .85) 35%, hsla(0, 0%, 0%, 0)), url(../img/nav-shadow.png), url(http://unsplash.it/1200/600?image=971);
+    background-size: 100%, 100%, cover;
+    background-repeat: no-repeat;
+    background-position: left, bottom, center;
+}
+
+div.featured {
+    padding: 150px 0;
+    font-size: 24px;
+    width: 33%;
+    color: hsl(0, 0%, 100%);
+}
+div.featured h2 {
+    margin-bottom: 24px;
+}
+div.featured .poster {
+    max-width: 100%;
+}
+
+.swiper-container {
+    height: 225px;
+}
+
+
+.swiper-wrapper {
+    display: flex;
+    align-items: center;
+}
+.swiper-slide {
+    width: 250px;
+    height: 150px;
+    /*counter-increment: gallery-cell;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* FOR DEMO ONLY*/
+/*.swiper-slide::before {
+    content: counter(gallery-cell);
+    font-size: 5vw;
+    color: white;
+}*/
+
+/**
+*    Swiper Previous / Next Buttons
+**/
+.swiper-container .swiper-button-prev,
+.swiper-container .swiper-button-next {
+    display: none;
+}
+.swiper-container:hover .swiper-button-prev,
+.swiper-container:hover .swiper-button-next {
+    display: block;
+    background-color: hsla(0, 0%, 0%, .25);
+}
+.swiper-container:hover .swiper-button-prev:hover,
+.swiper-container:hover .swiper-button-next:hover{
+    background-color: hsla(0, 0%, 0%, .5);
+}
+.swiper-button-prev, .swiper-button-next {
+    position: absolute;
+    top: 0;
+    width: 56px;
+    height: 225px;
+    margin: 0;
+    z-index: 10;
+    cursor: pointer;
+    background-size: 27px 44px;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: background-size 150ms ease-out;
+}
+.swiper-button-prev:hover, .swiper-button-next:hover {
+    background-color: hsla(0, 0%, 0%, .25);
+    background-size: 37px 54px;
+}
+.swiper-button-prev, .swiper-container-rtl .swiper-button-next {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+    left: 0; right: auto;
+}
+.swiper-button-next, .swiper-container-rtl .swiper-button-prev {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M27%2C22L27%2C22L5%2C44l-2.1-2.1L22.8%2C22L2.9%2C2.1L5%2C0L27%2C22L27%2C22z'%20fill%3D'%23ffffff'%2F%3E%3C%2Fsvg%3E");
+    right: 0; left: auto;
+}
+
+
+
+/**
+*    Swiper Scale Animation
+**/
+.swiper-slide {
+    background-color: hsl(0, 0%, 0%);
+    transition-property: margin, transform !important;
+    transition-duration: 450ms, 450ms !important;
+    transform-origin: center;
+}
+.swiper-slide.prev-hovered {
+    margin-right: 66px !important;
+}
+.swiper-slide.hovered {
+    transform: scale(1.5);
+}
+.swiper-slide.next-hovered {
+    margin-left: 63px !important;
+}
+
+
+
+
+
+
+/*
+*
+* PROGRESS BAR ----------------------------------
+*
+*/
+progress[value] {
+    width: 55%;
+    -moz-appearance: none;
+    appearance: none;
+    height: 3px;
+    border: none;
+    border-radius: 3px;
+    background-color: hsla(0, 0%, 80%, .5);
+}
+progress[value]::-moz-progress-bar {
+    background-color: red;
+    border-radius: 3px;
+}
+
+/* FIGURE */
+figure {
+    position: relative;
+    margin: 0;
+    display: flex;
+    color: white;
+    font-family: sans-serif;
+}
+figure img {
+    width: 100%;
+}
+figcaption {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    padding: 1vw;
+    box-sizing: border-box;
+    background-image: linear-gradient(to top, hsla(0, 0%, 0%, .5), hsla(0, 0%, 0%, 0));
+    display: flex;
+    align-items: flex-end;
+}
+
+/*
+*
+* FIGURE BUTTONS --------------------------------
+*
+*/
+figure button {
+    padding: 0;
+    margin: 0;
+    width: 24px;
+    height: 24px;
+    font-size: 1rem;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsla(0, 0%, 100%, 1);
+    border-color: hsla(0, 0%, 100%, 1);
+    cursor: pointer;
+    transition-property: transform, background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+}
+figure button:hover {
+    transform: scale(1.1);
+    background-color: hsla(0, 0%, 0%, .5);
+}
+figure button.thumbPlay {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
+    border-width: 3px;
+    font-size: 2.25rem;
+    color: hsla(0, 0%, 100%, .5);
+    border-color: hsla(0, 0%, 100%, .5);
+    transition-property: background-color, border-color, color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+}
+figure button.thumbPlay:hover {
+    background-color: hsla(0, 0%, 0%, .5);
+    border-color: hsla(0, 0%, 100%, 1);
+    color: red;
+}
+figure button.thumbPlay i.fa {
+    width: 100%;
+    margin-left: .4vw;
+}
+
+/*
+*
+* FIGURE THUMBMETA ------------------------------
+*
+*/
+figure .thumbMeta {
+    flex: 1;
+}
+figure .thumbMeta div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+figure .thumbMeta h1 {
+    font-size: 1rem;
+    font-weight: 600;
+}
+figure .thumbMeta span {
+    flex: none;
+    margin-left: auto;
+    font-size: 80%;
+}
+
+/*
+*
+* FIGURE THUMBRATE ------------------------------
+*
+*/
+figure .thumbRate {
+    margin-left: .4vw;
+}
+figure .thumbRate button:not(:first-child) {
+    margin-top: .5vw;
+}
+
+
+/*
+*
+* DETAIL ---------------------------------------
+*
+*/
+section {
+    padding-bottom: 65px;
+}
+
+#detail {
+    width: 100%;
+    box-sizing: border-box;
+    color: hsla(0, 0%, 100%, .5);
+    background-size: 100%, 100%, cover;
+    background-repeat: no-repeat;
+    background-position: left, bottom, top;
+    font-family: sans-serif;
+    font-weight: 200;
+    line-height: 1.4;
+    position: relative;
+
+}
+#detail.active {
+    height: 50vw;
+    max-height: 500px;
+    padding: 2vw;
+}
+#detail > div {
+    width: 33%;
+}
+#detail h1 {
+    color: hsl(0, 0%, 100%);
+    font-size: 3rem;
+    line-height: 1;
+}
+#detail .activeInfo {
+    margin-bottom: 16px;
+}
+#detail .activeInfo span:not(last-child){
+    margin-right: .5vw;
+}
+#detail .activeInfo span:first-child {
+    color: hsl(147, 67%, 48%);
+    font-weight: 800;
+}
+#detail .activeInfo span:nth-child(3){
+    border: 1px solid hsla(0, 0%, 100%, .25);
+    padding: 4px 4px 1px;
+}
+
+
+#detail .activeMeta {
+    display: flex;
+    align-items: center;
+}
+#detail .activeMeta span {
+    margin-left: 1vw;
+}
+#detail h1 + p {
+    margin-top: 0;
+}
+#detail p {
+    font-size: 115%;
+}
+#detail small {
+    line-height: 0;
+}
+#detail .activeRate {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    color: white;
+}
+#detail .activeRate button:nth-child(2) {
+    margin-left: 50px;
+}
+#detail .activeRate button {
+    margin-right: 1vw;
+}
+#detail button {
+    padding: 0;
+    margin: 0;
+    width: 3.5vw;
+    height: 3.5vw;
+    font-size: 2vw;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: hsla(0, 0%, 100%, 1);
+    border-color: hsla(0, 0%, 100%, 1);
+    cursor: pointer;
+    transition-property: transform, background-color;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+}
+#detail button:hover {
+    transform: scale(1.1);
+    background-color: hsla(0, 0%, 0%, .5);
+}
+#detail button.selectionPlay {
+    position: absolute;
+    top: 50%;
+    left: 66%;
+    transform: translate3d(-50%, -50%, 0), scale(1);
+    width: 8vw;
+    height: 8vw;
+    font-size: 4vw;
+    border-width: 4px;
+
+    transition-property: background-color, border-color, color, transform;
+    transition-duration: 150ms;
+    transition-timing-function: ease-out;
+}
+#detail button.selectionPlay:hover {
+    background-color: hsla(0, 0%, 0%, .5);
+    border-color: hsla(0, 0%, 100%, 1);
+    color: red;
+    transform: translate3d(-50%, -50%, 0), scale(1.1);
+}
+
+#detail button.selectionPlay i.fa {
+    width: 100%;
+    margin-left: .4vw;
+}
+#detail button.selectionClose {
+    border: none;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    font-size: 3vw;
+    color: white;
+}
+#detail button.selectionClose:hover {
+    transform: scale(1);
+    background-color: transparent;
+}
+/*
+*
+* New Users ---------------------------------------
+*
+*/
+
+.hidden {
+    display: none;
+}
+
+#userForm {
+    background-color: hsl(25, 10%, 22%);
+    padding: 8px 16px;
+    position: absolute;
+    top: 100%;
+    right: 16px;
+    
+}
+#userForm div {
+    display: flex;
+    flex-direction: column;
+}
+#userForm input:not(:last-child){
+    margin-bottom: 4px;
+    border: 0;
+    padding: 8px;
+    font-size: inherit;
+}
+#userForm input:last-child {
+    align-self: flex-end;
+    padding: 8px 16px;
+    margin-top: 4px;
+    border-radius: 2px;
+    color: white;
+    border: 1px solid #E50914;
+    background-color: #E50914;
+    cursor: pointer;
+}
+#userForm input:last-child:hover {
+    border-color: #A54A4D;
+    background-color: #A54A4D;
+}
+#icon{
+    color: #E50914;
+}

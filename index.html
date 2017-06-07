@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/css/swiper.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="featured">
+        <div class="wrapper">
+            <nav>
+                <h1><a href="#">Netflix Demo</a></h1>
+                <ul>
+                    <li><a href="#" class="active">Browse <i class="fa fa-caret-down"></i></a></li>
+                    <li><a href="#">DVD</a></li>
+                </ul>
+                <ul>
+                    <li>
+                        <form>
+                            <label>
+                                <span><i class="fa fa-search"></i> <span>Search</span></span>
+                                <input type="search" placeholder="Find a movie" onkeydown="">
+                            </label>
+                        </form>
+                    </li>
+                    <li><a href="#"><i class="fa fa-bell"></i></a></li>
+                    <li><a href="#" id="newUser"><i id="icon" class="fa fa-user"></i> User <i class="fa fa-caret-down"></i></a></li>
+                    <form class="hidden" id="userForm">
+                     <div>
+                      <input type="text" placeholder="first name" name="" value="">
+                      <input type="text" placeholder="last name" name="" value="">
+                      <input type="text" placeholder="username" name="" value="">
+                      <input type="submit" name="" value="Create User">
+                      </div>
+                    </form>
+                </ul>
+            </nav>
+            <div class="featured">
+                <p><strong>NETFLIX</strong> ORIGINAL</p>
+                <img class="poster" src="#" alt="">
+                <h2>Watch <span class="title">Season 2</span> Now</h2>
+                <span>
+                    <a href="#" class="btn play-btn"><i class="fa fa-play"></i> PLAY</a>
+                    <a href="#" class="btn save-btn"><i class="fa fa-plus"></i> MY LIST</a>
+                </span>
+            </div>
+        </div>
+    </header>
+
+    <section>
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+            <!--
+                <div class="swiper-slide"></div>
+                ...
+            -->
+            </div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+        </div>
+        <div id="detail">
+
+        </div>
+    </section>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.2/js/swiper.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
